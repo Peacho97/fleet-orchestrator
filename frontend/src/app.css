@@ -1,0 +1,53 @@
+/* Orchestrator - standalone control-room theme · LIQUID GLASS.
+   Dark base + a vibrant, slowly drifting colour field behind frosted glass panels
+   (the glass lives in App.svelte). The blobs give the backdrop-blur something to
+   refract, which is what sells the liquid-glass look. */
+:root {
+  --bg: rgba(255,255,255,.03);          /* nested card glass */
+  --bg-soft: rgba(255,255,255,.05);      /* panel glass base */
+  --border: rgba(255,255,255,.10);       /* specular edge */
+  --text: #eef2f8;
+  --text-muted: #a6adbe;
+  --text-faint: #6b7488;
+  --accent: #4fe6d0;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  background: #060810;
+}
+
+/* The moving colour field - fixed, behind everything, gently alive. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: -20vmax;
+  z-index: -1;
+  background:
+    radial-gradient(38vmax 38vmax at 12% 6%,  rgba(60,240,212,.40), transparent 62%),
+    radial-gradient(34vmax 34vmax at 90% 14%, rgba(96,158,255,.38), transparent 62%),
+    radial-gradient(40vmax 40vmax at 72% 96%, rgba(176,120,255,.40), transparent 64%),
+    radial-gradient(30vmax 30vmax at 18% 98%, rgba(255,110,165,.30), transparent 62%),
+    #05070d;
+  filter: saturate(150%);
+  animation: drift 34s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  50%  { transform: translate3d(2.5vmax,-2vmax,0) scale(1.06); }
+  100% { transform: translate3d(-2vmax,1.5vmax,0) scale(1.03); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before { animation: none; }
+}
+
+#app { min-height: 100vh; }

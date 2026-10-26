@@ -1,0 +1,14 @@
+[project]
+name = "fleet-orchestrator"
+version = "0.1.0"
+description = "Control room for a local AI fleet: agent runs, GPU telemetry and leases."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = ["fastapi>=0.110", "uvicorn>=0.29", "httpx>=0.27"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

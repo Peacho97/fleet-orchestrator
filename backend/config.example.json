@@ -1,0 +1,36 @@
+{
+  "ORCH_HOST": "127.0.0.1",
+  "ORCH_PORT": "8130",
+  "GPU_BROKER_URL": "http://127.0.0.1:8106",
+  "SESSION_BROKER_URL": "http://127.0.0.1:8077",
+  "OLLAMA_URL": "http://127.0.0.1:11434",
+  "SUMMARY_MODEL": "llama3.2:3b",
+  "GPU_BROKER_LINES": "amd,cuda,host-ram",
+  "SESSION_RUNS_DIR": "",
+  "SESSION_ARCHIVE_DIR": "",
+  "PRELOAD_TIMEOUT_S": "30",
+  "SUMMARY_TIMEOUT_S": "20",
+  "vram_table": {
+    "9060 xt": 16384,
+    "9070": 16384,
+    "2080 super": 8192,
+    "2080": 8192
+  },
+  "ai_processes": [
+    "ollama",
+    "python",
+    "comfyui",
+    "stable",
+    "llama",
+    "koboldcpp",
+    "worker"
+  ],
+  "gaming_ignore": [
+    "dwm.exe",
+    "explorer.exe",
+    "csrss.exe",
+    "searchhost.exe",
+    "shellexperiencehost.exe",
+    "startmenuexperiencehost.exe"
+  ]
+}
